@@ -92,6 +92,10 @@ removeProd.addEventListener("click",function(){
         })
         
            cartArr.splice(ind,1)
+
+          
+          dupId.splice(ind, 1);
+
         }
     })
 })
