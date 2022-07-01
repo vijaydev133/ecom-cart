@@ -3,7 +3,7 @@ import Bats from "./products.js"
 
 let cartArr = [] 
 
-let dupId = [];
+
 
 let isThere = true;
 
@@ -22,7 +22,7 @@ addCartBtn.addEventListener("click",function(){
     let ID = addCartInp.value
     
     if(ID != ""){
-        isThere = dupId.some((l) => l == ID);
+        isThere = cartArr.some((l) => l.id == ID);
 
 
     if (isThere) {
@@ -39,31 +39,13 @@ addCartBtn.addEventListener("click",function(){
           cartArr.push(e);
         }
       })
-      dupId.push(ID);
+
     }
     
     }
     else{
         alert("input some value")
     }
-    // isThere = dupId.some((l) => l == ID);
-
-
-    // if (isThere) {
-    //   cartArr.forEach((e) => {
-    //     if (ID == e.id) {
-    //       e.qty++;
-    //     }
-    //   })
-    // } else {
-    //   console.log("in else");
-    //   Bats.forEach((e) => {
-    //     if (e.id == ID) {
-    //       cartArr.push(e);
-    //     }
-    //   })
-    //   dupId.push(ID);
-    // }
     
 })
 
@@ -88,13 +70,14 @@ removeProd.addEventListener("click",function(){
         if(rmvID == e.id){
             
            let ind = cartArr.findIndex((e)=> {
+            e.qty = 1
             return e.id == rmvID
         })
         
            cartArr.splice(ind,1)
 
           
-          dupId.splice(ind, 1);
+
 
         }
     })
